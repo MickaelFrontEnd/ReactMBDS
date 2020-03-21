@@ -49,6 +49,7 @@ const Home = () => {
           <Tile
             title={item.name}
             picture={item.picture}
+            album={item.albumTitle}
             url={`/artist/${item.name}`}
           />
         </Grid>
@@ -59,12 +60,12 @@ const Home = () => {
   return (
     <Box pt={2}>
       <Typography variant="h5" component="h2">
-        <Box textAlign="center">Bienvenue, veuillez taper le nom de votre groupe préferé en bas:</Box>
+        <Box textAlign="center">Bienvenue, veuillez taper le nom d'un groupe/artiste ou le titre d'une chanson:</Box>
       </Typography>
       <Box mt={2} width={1 / 2} mx="auto" mb={2}>
         <form noValidate autoComplete="off">
           <Search
-            placeholder="Rechercher un nom de groupe ici"
+            placeholder="Exemple: Metallica, Adele, Nirvana, Justin Bieber, Ariana Grande, ..."
             searchFunction={searchHandler} />
         </form>
       </Box>
