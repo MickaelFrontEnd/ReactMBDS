@@ -8,6 +8,7 @@ import TopBar from './layout/TopBarComponent';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { WASABI_ARTIST_SEARCH } from './cofig/Url';
 
 function App() {
 
@@ -36,7 +37,6 @@ function App() {
   }
 
   const renderNoResult = () => {
-    console.log(data);
     if (data === undefined || data.length <= 0) {
       return (
         <Typography component="div">
@@ -53,6 +53,7 @@ function App() {
           <Tile
             title={item.name}
             picture={item.picture}
+            url={`${WASABI_ARTIST_SEARCH}/${item.name}`}
           />
         </Grid>
       ))}
@@ -65,7 +66,7 @@ function App() {
       <Container maxWidth="lg">
         <Box pt={2}>
           <Typography variant="h5" component="h2">
-            <Box textAlign="center">Bienvenu, veuillez taper le nom de votre groupe préferé en bas:</Box>
+            <Box textAlign="center">Bienvenue, veuillez taper le nom de votre groupe préferé en bas:</Box>
           </Typography>
           <Box mt={2} width={1 / 2} mx="auto" mb={2}>
             <form noValidate autoComplete="off">

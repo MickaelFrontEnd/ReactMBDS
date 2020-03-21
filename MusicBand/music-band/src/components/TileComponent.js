@@ -23,7 +23,7 @@ const useStyles = makeStyles({
   }
 });
 
-const Tile = ({ title, picture }) => {
+const Tile = ({ title, picture, url }) => {
   const classes = useStyles();
   return (
     <Card>
@@ -38,7 +38,7 @@ const Tile = ({ title, picture }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" href={url}>
           Voir plus
         </Button>
       </CardActions>
@@ -48,7 +48,8 @@ const Tile = ({ title, picture }) => {
 
 Tile.propTypes = {
   title: PropTypes.string,
-  picture: PropTypes.string
+  picture: PropTypes.string,
+  url: PropTypes.string
 };
 
 export default Tile;
