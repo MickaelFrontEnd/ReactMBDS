@@ -1,4 +1,5 @@
 # Front End Framework
+This a simple repository to put all necessary links and source code of TP or project on Front End Framework course during my MBDS cursus at UNICE.
 
 # Useful link resources
 - Michel Buffa course on React: https://docs.google.com/presentation/d/1yZek3hx93u392a3A8R6RFgpZrMY1gPFpeUEEPn8A4dA/edit?usp=sharing
