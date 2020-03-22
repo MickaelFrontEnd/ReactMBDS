@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import searchByFullText from '../services/SearchService';
-import Search from '../components/SearchComponent';
-import Tile from '../components/TileComponent';
+import Search from '../components/Search';
+import Tile from '../components/Tile';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
