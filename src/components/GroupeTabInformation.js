@@ -10,7 +10,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import AlbumDetail from './AlbumDetail';
-import MemberDetail from './MemberDetail.txt';
+import MemberDetail from './MemberDetail.js';
 
 const useStyles = makeStyles(theme => ({
   gridList: {
@@ -126,6 +126,11 @@ export const GroupTabInformation = ({ albums, members }) => {
       <AlbumDetail open={album.open} album={album.album} onClose={() => onDialogCloseHandler(album.album)} />
     </div>
   );
+}
+
+GroupTabInformation.propTypes = {
+  albums: PropTypes.array,
+  members: PropTypes.array
 }
 
 export default GroupTabInformation;

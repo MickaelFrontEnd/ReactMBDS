@@ -5,6 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import GroupInformation from '../components/GroupeInformation';
 import GroupTabInformation from '../components/GroupeTabInformation';
+import PropTypes from 'prop-types';
 
 const DetailComponent = ({ match }) => {
 
@@ -41,6 +42,10 @@ const DetailComponent = ({ match }) => {
       </Box>
     );
   }
+}
+
+DetailComponent.propTypes = {
+  match: PropTypes.object
 }
 
 export default DetailComponent;

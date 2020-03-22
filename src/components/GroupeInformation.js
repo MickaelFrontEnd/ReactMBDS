@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
 
 const GroupInformation = ({ data }) => (
   <TableContainer component={Paper}>
@@ -38,5 +39,9 @@ const GroupInformation = ({ data }) => (
     </Table>
   </TableContainer>
 );
+
+GroupInformation.propTypes = {
+  data: PropTypes.object
+}
 
 export default GroupInformation;

@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-
+import PropTypes from 'prop-types';
 
 const AlbumDetail = ({ open, onClose, album }) => {
   return (
@@ -28,5 +28,11 @@ const AlbumDetail = ({ open, onClose, album }) => {
     </Dialog>
   )
 };
+
+AlbumDetail.propTypes = {
+  open: PropTypes.bool,
+  onClose: PropTypes.func,
+  album: PropTypes.array
+}
 
 export default AlbumDetail;

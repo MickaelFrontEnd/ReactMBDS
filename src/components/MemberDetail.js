@@ -14,6 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Alert from '@material-ui/lab/Alert';
 import Link from '@material-ui/core/Link';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -89,5 +90,9 @@ const MemberDetail = ({ member }) => {
     </ExpansionPanel>
   )
 };
+
+MemberDetail.propTypes = {
+  member: PropTypes.object
+}
 
 export default MemberDetail;
