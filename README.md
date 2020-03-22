@@ -10,3 +10,4 @@ This a simple repository to put all necessary links and source code of TP or pro
 - Simply run npm install or yarn install to get all dependencies
 - Then do npm run start or yarn start to lauch the project
 - This project is hosted on https://musicbanditu.herokuapp.com/
+- This projet used this web service as its data source https://wasabi.i3s.unice.fr/apidoc/
