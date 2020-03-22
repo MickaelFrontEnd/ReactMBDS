@@ -3,6 +3,7 @@ import { searchByArtist } from '../services/SearchService';
 import Box from '@material-ui/core/Box';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
+import GroupInformation from '../components/GroupeInformation';
 
 const DetailComponent = ({ match }) => {
 
@@ -19,7 +20,6 @@ const DetailComponent = ({ match }) => {
       })
   }, [artist]);
 
-
   if (!data) {
     return (
       <Box mx="auto" textAlign="center" pt={5} pb={5}>
@@ -30,11 +30,12 @@ const DetailComponent = ({ match }) => {
   else {
     return (
       <Box mx="auto" pt={5} pb={5}>
-        <Box textAlign="center">
+        <Box textAlign="center" mb={2}>
           <img src={data.picture.medium} />
           <Typography component="h2" variant="h2">{data.name}</Typography>
         </Box>
         <Typography component="p" variant="body1">{data.abstract}</Typography>
+        <Box mt={2} mb={2}><GroupInformation data={data} /></Box>
       </Box>
     );
   }
