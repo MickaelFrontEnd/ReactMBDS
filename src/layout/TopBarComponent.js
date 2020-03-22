@@ -45,7 +45,7 @@ const TopBar = () => {
                 <ListItemIcon><HomeIcon /></ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
-              <ListItem button key="GitHub" component="a" href="https://github.com/MickaelFrontEnd/ReactMBDS/" onClick={toggleMenu}>
+              <ListItem button key="GitHub" component="a" href="https://github.com/MickaelFrontEnd/ReactMBDS/" target="_blank" onClick={toggleMenu}>
                 <ListItemIcon><GitHubIcon /></ListItemIcon>
                 <ListItemText primary="GitHub" />
               </ListItem>
