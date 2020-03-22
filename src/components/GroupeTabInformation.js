@@ -9,18 +9,11 @@ import Box from '@material-ui/core/Box';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
+import AlbumDetail from './AlbumDetail';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
   gridList: {
     flexWrap: 'nowrap',
-    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
   title: {
@@ -72,26 +65,49 @@ const useGroupTabStyles = makeStyles(theme => ({
 export const GroupTabInformation = ({ albums }) => {
   const groupTabClasses = useGroupTabStyles();
   const [value, setValue] = React.useState(0);
+  const [album, setAlbum] = React.useState({
+    album: {
+      cover: {
+        medium: ''
+      },
+      title: ''
+    },
+    open: false
+  });
 
   const handleChange = (event, newValue) => {
     event.preventDefault();
     setValue(newValue);
   };
 
+  const openDialog = (album) => {
+    setAlbum({
+      album,
+      open: true
+    });
+  }
+
+  const onDialogCloseHandler = (album) => {
+    setAlbum({
+      album,
+      open: false
+    })
+  }
+
   const classes = useStyles();
 
   return (
     <div className={groupTabClasses.root}>
       <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-          <Tab label="Album(s)" {...a11yProps(0)} />
+        <Tabs value={value} onChange={handleChange} aria-label="Group information tab">
+          <Tab label="Albums" {...a11yProps(0)} />
           <Tab label="Membre du groupe" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
         <GridList className={classes.gridList} cols={3.5} cellHeight={{height:400}}>
           {albums.map((album) => (
-            <GridListTile key={album._id}>
+            <GridListTile key={album._id} onClick={() => openDialog(album)} style={{cursor:"pointer"}}>
               <img src={album.cover?.medium} alt={album.title} />
               <GridListTileBar title={album.title} />
             </GridListTile>
@@ -101,6 +117,7 @@ export const GroupTabInformation = ({ albums }) => {
       <TabPanel value={value} index={1}>
 
       </TabPanel>
+      <AlbumDetail open={album.open} album={album.album} onClose={() => onDialogCloseHandler(album.album)} />
     </div>
   );
 }

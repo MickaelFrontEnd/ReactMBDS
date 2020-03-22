@@ -1,9 +1,9 @@
 import React from 'react';
 import TopBar from './layout/TopBarComponent';
-import Home from './pages/HomeComponent';
+import Home from './pages/Home';
 import Container from '@material-ui/core/Container';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Detail from './pages/DetailComponent';
+import Detail from './pages/Detail';
 
 function App() {
   return (
