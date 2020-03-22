@@ -45,7 +45,7 @@ const Home = () => {
   const renderResult = () => (
     !isLoading && <Grid container spacing={1}>
       {data && data.map((item, index) => (
-        <Grid item xs={3} spacing={3} key={index}>
+        <Grid item xs={3} key={index}>
           <Tile
             title={item.name}
             picture={item.picture}

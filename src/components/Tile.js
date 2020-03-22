@@ -31,7 +31,7 @@ const Tile = ({ title, picture, url, album }) => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={picture}
+          image={picture !== '' ? picture : 'https://dummyimage.com/600x400/000/fff'}
           title={title}
         />
         <CardContent className={classes.content}>

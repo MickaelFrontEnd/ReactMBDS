@@ -109,7 +109,7 @@ export const GroupTabInformation = ({ albums, members }) => {
         <GridList className={classes.gridList} cols={3.5} cellHeight={{ height: 400 }}>
           {albums.map((album) => (
             <GridListTile key={album._id} onClick={() => openDialog(album)} style={{ cursor: "pointer" }}>
-              <img src={album.cover?.medium} alt={album.title} />
+              <img src={album.cover ? album.cover.medium : 'https://dummyimage.com/600x400/000/fff'} alt={album.title} />
               <GridListTileBar title={album.title} />
             </GridListTile>
           ))}

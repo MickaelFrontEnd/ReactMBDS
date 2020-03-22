@@ -33,7 +33,7 @@ const GroupInformation = ({ data }) => (
         </TableRow>
         <TableRow key={6}>
           <TableCell>Artiste(s) associé(s)</TableCell>
-          <TableCell>{data.associatedMusicalArtist.length > 0 ? data.associatedMusicalArtist.join(' - ') : 'Aucun'}</TableCell>
+          <TableCell>{data.associatedMusicalArtist?.length > 0 ? data.associatedMusicalArtist.join(' - ') : 'Aucun'}</TableCell>
         </TableRow>
       </TableBody>
     </Table>
