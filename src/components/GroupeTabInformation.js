@@ -10,6 +10,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import AlbumDetail from './AlbumDetail';
+import MemberDetail from './MemberDetail.txt';
 
 const useStyles = makeStyles(theme => ({
   gridList: {
@@ -62,7 +63,7 @@ const useGroupTabStyles = makeStyles(theme => ({
   },
 }));
 
-export const GroupTabInformation = ({ albums }) => {
+export const GroupTabInformation = ({ albums, members }) => {
   const groupTabClasses = useGroupTabStyles();
   const [value, setValue] = React.useState(0);
   const [album, setAlbum] = React.useState({
@@ -101,22 +102,27 @@ export const GroupTabInformation = ({ albums }) => {
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="Group information tab">
           <Tab label="Albums" {...a11yProps(0)} />
-          <Tab label="Membre du groupe" {...a11yProps(1)} />
+          {members.length > 0 && <Tab label="Membre du groupe" {...a11yProps(1)} />}
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <GridList className={classes.gridList} cols={3.5} cellHeight={{height:400}}>
+        <GridList className={classes.gridList} cols={3.5} cellHeight={{ height: 400 }}>
           {albums.map((album) => (
-            <GridListTile key={album._id} onClick={() => openDialog(album)} style={{cursor:"pointer"}}>
+            <GridListTile key={album._id} onClick={() => openDialog(album)} style={{ cursor: "pointer" }}>
               <img src={album.cover?.medium} alt={album.title} />
               <GridListTileBar title={album.title} />
             </GridListTile>
           ))}
         </GridList>
       </TabPanel>
-      <TabPanel value={value} index={1}>
-
+      {members.length > 0 && <TabPanel value={value} index={1}>
+        <Box>
+          {members.map((member) => (
+            <MemberDetail member={member} />
+          ))}
+        </Box>
       </TabPanel>
+      }
       <AlbumDetail open={album.open} album={album.album} onClose={() => onDialogCloseHandler(album.album)} />
     </div>
   );

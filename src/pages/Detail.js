@@ -37,7 +37,7 @@ const DetailComponent = ({ match }) => {
         </Box>
         <Typography component="p" variant="body1">{data.abstract}</Typography>
         <Box mt={2} mb={2}><GroupInformation data={data} /></Box>
-        <Box mt={2} mb={2}><GroupTabInformation albums={data.albums} /></Box>
+        <Box mt={2} mb={2}><GroupTabInformation albums={data.albums} members={data.members} /></Box>
       </Box>
     );
   }
